@@ -97,6 +97,19 @@ body {
 .countdown-num { font-size: 2.5rem; font-weight: 800; line-height: 1; letter-spacing: -0.01em; }
 .countdown-label { font-size: 0.85rem; opacity: 0.85; margin-top: 6px; }
 
+/* Score card (punteggio) */
+.score-card { background: linear-gradient(160deg, #fff, var(--cream-alt)); }
+.score-row { display: flex; align-items: center; justify-content: center; gap: 20px; }
+.score-item { flex: 1; text-align: center; }
+.score-num {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  font-size: 1.7rem; font-weight: 800; color: var(--indigo);
+}
+.score-icon { width: 20px; height: 20px; color: var(--gold); }
+.score-label { font-size: 0.74rem; color: var(--muted); margin-top: 2px; }
+.score-divider { width: 1px; align-self: stretch; background: var(--border); }
+.score-hint { margin: 12px 0 0; font-size: 0.8rem; color: var(--muted); line-height: 1.4; text-align: center; }
+
 /* Banner */
 .banner {
   display: flex;
@@ -228,29 +241,47 @@ input[type="number"] {
 .heat-2 { background: var(--gold); }
 .heat-3 { background: var(--jade); }
 
-/* Flashcard */
+/* Flashcard / Quiz */
 .flash-card { text-align: center; padding: 26px 18px; }
 .flash-progress { font-size: 0.78rem; color: var(--muted); margin-bottom: 12px; font-weight: 600; }
 .flash-front { font-size: 2.3rem; font-weight: 700; margin: 8px 0; word-break: break-word; color: var(--indigo); }
 .flash-front-hidden { color: var(--border); font-size: 2.6rem; }
 .flash-hint { font-size: 0.8rem; color: var(--muted); margin-bottom: 6px; }
 .flash-sub { font-size: 0.98rem; color: var(--muted); margin-bottom: 10px; }
-.flash-reveal-front { font-size: 2rem; font-weight: 700; color: var(--indigo); margin-bottom: 4px; }
-.flash-back {
-  margin-top: 16px;
-  padding-top: 16px;
-  border-top: 1px dashed var(--border);
-  font-size: 1.1rem;
+
+/* Griglia opzioni a scelta multipla (stile Duolingo) */
+.options-grid {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
 }
-.flash-back.hidden { display: none; }
-.flash-controls { margin-top: 18px; display: flex; gap: 8px; flex-wrap: wrap; }
-.flash-controls.hidden { display: none; }
-.flash-controls .btn { flex: 1; min-width: 70px; }
-.btn-grade { color: #fff; font-size: 0.82rem; padding: 12px 6px; }
-.btn-grade.again { background: var(--vermilion-dark); }
-.btn-grade.hard { background: var(--gold); }
-.btn-grade.good { background: var(--jade); }
-.btn-grade.easy { background: var(--indigo); }
+.option-btn {
+  width: 100%;
+  text-align: left;
+  padding: 14px 16px;
+  border-radius: var(--radius-m);
+  border: 2px solid var(--border);
+  background: var(--card-bg);
+  color: var(--ink);
+  font-size: 0.98rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.1s ease;
+}
+.option-btn:active { transform: scale(0.98); }
+.option-btn.disabled { pointer-events: none; }
+.option-btn.correct {
+  border-color: var(--jade);
+  background: var(--jade-soft);
+  color: var(--jade);
+}
+.option-btn.incorrect {
+  border-color: var(--vermilion);
+  background: #FBEAE6;
+  color: var(--vermilion-dark);
+}
 
 .session-done { text-align: center; }
 .session-done-icon { width: 40px; height: 40px; color: var(--jade); margin-bottom: 8px; }
@@ -337,4 +368,5 @@ ul li { margin-bottom: 6px; font-size: 0.9rem; line-height: 1.45; }
 
 @media (min-width: 480px) {
   .flash-front { font-size: 3rem; }
+  .options-grid { grid-template-columns: 1fr 1fr; }
 }

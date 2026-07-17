@@ -132,6 +132,12 @@ var CATEGORY_LABELS = {
   natura: 'Natura',
   persone: 'Persone e corpo',
   luoghi: 'Luoghi e direzioni',
+  casa: 'Casa e famiglia',
+  corpo: 'Corpo e benessere',
+  meteo: 'Meteo',
+  hobby: 'Hobby e tempo libero',
+  colori: 'Colori',
+  lavoroscuola: 'Lavoro e scuola',
 };
 
 // ---------- VOCABOLARIO (per SRS) ----------
@@ -211,6 +217,11 @@ var VOCAB = [
   {jp:'ください',kana:'ください',romaji:'kudasai',it:'per favore (dammi)',cat:'cibo'},
   {jp:'いただきます',kana:'いただきます',romaji:'itadakimasu',it:'formula prima di mangiare',cat:'cibo'},
   {jp:'ごちそうさまでした',kana:'ごちそうさまでした',romaji:'gochisousama deshita',it:'formula dopo aver mangiato',cat:'cibo'},
+  {jp:'ラーメン',kana:'ラーメン',romaji:'raamen',it:'ramen',cat:'cibo'},
+  {jp:'寿司',kana:'すし',romaji:'sushi',it:'sushi',cat:'cibo'},
+  {jp:'天ぷら',kana:'てんぷら',romaji:'tenpura',it:'tempura',cat:'cibo'},
+  {jp:'デザート',kana:'デザート',romaji:'dezaato',it:'dessert',cat:'cibo'},
+  {jp:'おかわり',kana:'おかわり',romaji:'okawari',it:'bis (di cibo/bevanda)',cat:'cibo'},
 
   // direzioni
   {jp:'駅',kana:'えき',romaji:'eki',it:'stazione',cat:'direzioni'},
@@ -228,6 +239,8 @@ var VOCAB = [
   {jp:'遠い',kana:'とおい',romaji:'tooi',it:'lontano',cat:'direzioni'},
   {jp:'入口',kana:'いりぐち',romaji:'iriguchi',it:'entrata',cat:'direzioni'},
   {jp:'出口',kana:'でぐち',romaji:'deguchi',it:'uscita',cat:'direzioni'},
+  {jp:'地図',kana:'ちず',romaji:'chizu',it:'mappa',cat:'direzioni'},
+  {jp:'信号',kana:'しんごう',romaji:'shingou',it:'semaforo',cat:'direzioni'},
 
   // trasporti
   {jp:'電車',kana:'でんしゃ',romaji:'densha',it:'treno',cat:'trasporti'},
@@ -245,6 +258,9 @@ var VOCAB = [
   {jp:'運転手',kana:'うんてんしゅ',romaji:'untenshu',it:'autista',cat:'trasporti'},
   {jp:'遅れる',kana:'おくれる',romaji:'okureru',it:'ritardare',cat:'trasporti'},
   {jp:'早い',kana:'はやい',romaji:'hayai',it:'veloce / presto',cat:'trasporti'},
+  {jp:'新幹線',kana:'しんかんせん',romaji:'shinkansen',it:'treno superveloce',cat:'trasporti'},
+  {jp:'ホーム',kana:'ホーム',romaji:'hoomu',it:'banchina',cat:'trasporti'},
+  {jp:'改札',kana:'かいさつ',romaji:'kaisatsu',it:'tornelli / controllo biglietti',cat:'trasporti'},
 
   // emergenza
   {jp:'助けて',kana:'たすけて',romaji:'tasukete',it:'aiuto!',cat:'emergenza'},
@@ -324,6 +340,75 @@ var VOCAB = [
   {jp:'Wi-Fiはありますか',kana:'ワイファイはありますか',romaji:'waifai wa arimasu ka',it:'c\'è il wifi?',cat:'smalltalk'},
   {jp:'楽しい',kana:'たのしい',romaji:'tanoshii',it:'divertente',cat:'smalltalk'},
   {jp:'大好きです',kana:'だいすきです',romaji:'daisuki desu',it:'mi piace molto',cat:'smalltalk'},
+
+  // casa e famiglia
+  {jp:'家族',kana:'かぞく',romaji:'kazoku',it:'famiglia',cat:'casa'},
+  {jp:'父',kana:'ちち',romaji:'chichi',it:'padre (mio)',cat:'casa'},
+  {jp:'母',kana:'はは',romaji:'haha',it:'madre (mia)',cat:'casa'},
+  {jp:'兄弟',kana:'きょうだい',romaji:'kyoudai',it:'fratelli',cat:'casa'},
+  {jp:'友達',kana:'ともだち',romaji:'tomodachi',it:'amico',cat:'casa'},
+  {jp:'部屋',kana:'へや',romaji:'heya',it:'stanza',cat:'casa'},
+  {jp:'布団',kana:'ふとん',romaji:'futon',it:'futon (materasso giapponese)',cat:'casa'},
+  {jp:'風呂',kana:'ふろ',romaji:'furo',it:'bagno (vasca)',cat:'casa'},
+  {jp:'台所',kana:'だいどころ',romaji:'daidokoro',it:'cucina',cat:'casa'},
+  {jp:'玄関',kana:'げんかん',romaji:'genkan',it:'ingresso (dove si tolgono le scarpe)',cat:'casa'},
+  {jp:'靴',kana:'くつ',romaji:'kutsu',it:'scarpe',cat:'casa'},
+  {jp:'スリッパ',kana:'スリッパ',romaji:'surippa',it:'pantofole',cat:'casa'},
+  {jp:'鍵',kana:'かぎ',romaji:'kagi',it:'chiave',cat:'casa'},
+  {jp:'窓',kana:'まど',romaji:'mado',it:'finestra',cat:'casa'},
+  {jp:'庭',kana:'にわ',romaji:'niwa',it:'giardino',cat:'casa'},
+
+  // corpo e benessere
+  {jp:'頭',kana:'あたま',romaji:'atama',it:'testa',cat:'corpo'},
+  {jp:'お腹',kana:'おなか',romaji:'onaka',it:'pancia',cat:'corpo'},
+  {jp:'喉',kana:'のど',romaji:'nodo',it:'gola',cat:'corpo'},
+  {jp:'背中',kana:'せなか',romaji:'senaka',it:'schiena',cat:'corpo'},
+  {jp:'足',kana:'あし',romaji:'ashi',it:'piede / gamba',cat:'corpo'},
+  {jp:'腕',kana:'うで',romaji:'ude',it:'braccio',cat:'corpo'},
+  {jp:'指',kana:'ゆび',romaji:'yubi',it:'dito',cat:'corpo'},
+  {jp:'疲れた',kana:'つかれた',romaji:'tsukareta',it:'stanco',cat:'corpo'},
+  {jp:'元気',kana:'げんき',romaji:'genki',it:'energico / stai bene',cat:'corpo'},
+  {jp:'眠い',kana:'ねむい',romaji:'nemui',it:'assonnato',cat:'corpo'},
+
+  // meteo
+  {jp:'天気',kana:'てんき',romaji:'tenki',it:'tempo (meteo)',cat:'meteo'},
+  {jp:'晴れ',kana:'はれ',romaji:'hare',it:'sereno',cat:'meteo'},
+  {jp:'曇り',kana:'くもり',romaji:'kumori',it:'nuvoloso',cat:'meteo'},
+  {jp:'雪',kana:'ゆき',romaji:'yuki',it:'neve',cat:'meteo'},
+  {jp:'風',kana:'かぜ',romaji:'kaze',it:'vento',cat:'meteo'},
+  {jp:'暑い',kana:'あつい',romaji:'atsui',it:'caldo',cat:'meteo'},
+  {jp:'寒い',kana:'さむい',romaji:'samui',it:'freddo',cat:'meteo'},
+  {jp:'涼しい',kana:'すずしい',romaji:'suzushii',it:'fresco',cat:'meteo'},
+  {jp:'蒸し暑い',kana:'むしあつい',romaji:'mushiatsui',it:'afoso / umido',cat:'meteo'},
+
+  // hobby e tempo libero
+  {jp:'音楽',kana:'おんがく',romaji:'ongaku',it:'musica',cat:'hobby'},
+  {jp:'映画',kana:'えいが',romaji:'eiga',it:'film',cat:'hobby'},
+  {jp:'本',kana:'ほん',romaji:'hon',it:'libro',cat:'hobby'},
+  {jp:'漫画',kana:'まんが',romaji:'manga',it:'fumetto',cat:'hobby'},
+  {jp:'アニメ',kana:'アニメ',romaji:'anime',it:'anime',cat:'hobby'},
+  {jp:'ゲーム',kana:'ゲーム',romaji:'geemu',it:'videogioco',cat:'hobby'},
+  {jp:'写真',kana:'しゃしん',romaji:'shashin',it:'foto',cat:'hobby'},
+  {jp:'旅行',kana:'りょこう',romaji:'ryokou',it:'viaggio',cat:'hobby'},
+  {jp:'温泉',kana:'おんせん',romaji:'onsen',it:'terme',cat:'hobby'},
+  {jp:'神社',kana:'じんじゃ',romaji:'jinja',it:'santuario shintoista',cat:'hobby'},
+  {jp:'お寺',kana:'おてら',romaji:'otera',it:'tempio buddista',cat:'hobby'},
+
+  // colori
+  {jp:'赤',kana:'あか',romaji:'aka',it:'rosso',cat:'colori'},
+  {jp:'青',kana:'あお',romaji:'ao',it:'blu',cat:'colori'},
+  {jp:'白',kana:'しろ',romaji:'shiro',it:'bianco',cat:'colori'},
+  {jp:'黒',kana:'くろ',romaji:'kuro',it:'nero',cat:'colori'},
+  {jp:'緑',kana:'みどり',romaji:'midori',it:'verde',cat:'colori'},
+  {jp:'黄色',kana:'きいろ',romaji:'kiiro',it:'giallo',cat:'colori'},
+
+  // lavoro e scuola
+  {jp:'仕事',kana:'しごと',romaji:'shigoto',it:'lavoro',cat:'lavoroscuola'},
+  {jp:'学校',kana:'がっこう',romaji:'gakkou',it:'scuola',cat:'lavoroscuola'},
+  {jp:'会社',kana:'かいしゃ',romaji:'kaisha',it:'azienda',cat:'lavoroscuola'},
+  {jp:'先生',kana:'せんせい',romaji:'sensei',it:'insegnante / maestro',cat:'lavoroscuola'},
+  {jp:'学生',kana:'がくせい',romaji:'gakusei',it:'studente',cat:'lavoroscuola'},
+  {jp:'休み',kana:'やすみ',romaji:'yasumi',it:'vacanza / pausa',cat:'lavoroscuola'},
 ];
 
 // ---------- FRASI (per shadowing / lettura) ----------
@@ -335,6 +420,10 @@ var PHRASES = [
   {jp:'左に曲がってください。',romaji:'Hidari ni magatte kudasai.',it:'Giri a sinistra, per favore.',cat:'direzioni'},
   {jp:'どのくらいかかりますか。',romaji:'Dono kurai kakarimasu ka.',it:'Quanto tempo ci vuole?',cat:'direzioni'},
   {jp:'歩いて行けますか。',romaji:'Aruite ikemasu ka.',it:'Posso arrivarci a piedi?',cat:'direzioni'},
+  {jp:'この地図で今どこにいますか。',romaji:'Kono chizu de ima doko ni imasu ka.',it:'Dove siamo ora su questa mappa?',cat:'direzioni'},
+  {jp:'次の角を左です。',romaji:'Tsugi no kado wo hidari desu.',it:'Al prossimo angolo è a sinistra.',cat:'direzioni'},
+  {jp:'歩いてどのくらいですか。',romaji:'Aruite dono kurai desu ka.',it:'Quanto ci vuole a piedi?',cat:'direzioni'},
+  {jp:'案内所はどこですか。',romaji:'Annaijo wa doko desu ka.',it:'Dov\'è l\'ufficio informazioni?',cat:'direzioni'},
 
   // cibo
   {jp:'おすすめは何ですか。',romaji:'Osusume wa nan desu ka.',it:'Cosa consiglia?',cat:'cibo'},
@@ -345,6 +434,12 @@ var PHRASES = [
   {jp:'辛くないものはありますか。',romaji:'Karakunai mono wa arimasu ka.',it:'C\'è qualcosa non piccante?',cat:'cibo'},
   {jp:'アレルギーがあります。',romaji:'Arerugii ga arimasu.',it:'Ho un\'allergia.',cat:'cibo'},
   {jp:'ベジタリアン料理はありますか。',romaji:'Bejitarian ryouri wa arimasu ka.',it:'C\'è un piatto vegetariano?',cat:'cibo'},
+  {jp:'おすすめの地元料理は何ですか。',romaji:'Osusume no jimoto ryouri wa nan desu ka.',it:'Qual è il piatto tipico locale consigliato?',cat:'cibo'},
+  {jp:'おかわりできますか。',romaji:'Okawari dekimasu ka.',it:'Posso avere un bis?',cat:'cibo'},
+  {jp:'持ち帰りできますか。',romaji:'Mochikaeri dekimasu ka.',it:'Posso portarlo via?',cat:'cibo'},
+  {jp:'量を少なくできますか。',romaji:'Ryou wo sukunaku dekimasu ka.',it:'Può farmi una porzione più piccola?',cat:'cibo'},
+  {jp:'デザートは何がありますか。',romaji:'Dezaato wa nani ga arimasu ka.',it:'Cosa avete come dessert?',cat:'cibo'},
+  {jp:'禁煙席をお願いします。',romaji:'Kin\'en seki wo onegaishimasu.',it:'Un tavolo non fumatori, per favore.',cat:'cibo'},
 
   // trasporti
   {jp:'この電車は東京駅に行きますか。',romaji:'Kono densha wa Toukyou eki ni ikimasu ka.',it:'Questo treno va alla stazione di Tokyo?',cat:'trasporti'},
@@ -352,6 +447,10 @@ var PHRASES = [
   {jp:'次の電車は何時ですか。',romaji:'Tsugi no densha wa nanji desu ka.',it:'A che ora è il prossimo treno?',cat:'trasporti'},
   {jp:'タクシーを呼んでもらえますか。',romaji:'Takushii wo yonde moraemasu ka.',it:'Può chiamarmi un taxi?',cat:'trasporti'},
   {jp:'ここで降ります。',romaji:'Koko de orimasu.',it:'Scendo qui.',cat:'trasporti'},
+  {jp:'新幹線のチケットはどこで買えますか。',romaji:'Shinkansen no chiketto wa doko de kaemasu ka.',it:'Dove compro il biglietto dello Shinkansen?',cat:'trasporti'},
+  {jp:'このバスは市内中心部に行きますか。',romaji:'Kono basu wa shinai chuushinbu ni ikimasu ka.',it:'Questo bus va al centro città?',cat:'trasporti'},
+  {jp:'終電は何時ですか。',romaji:'Shuuden wa nanji desu ka.',it:'A che ora è l\'ultimo treno?',cat:'trasporti'},
+  {jp:'時刻表を見せてもらえますか。',romaji:'Jikokuhyou wo misete moraemasu ka.',it:'Posso vedere l\'orario?',cat:'trasporti'},
 
   // emergenza
   {jp:'助けてください。',romaji:'Tasukete kudasai.',it:'Aiuto, per favore.',cat:'emergenza'},
@@ -360,6 +459,10 @@ var PHRASES = [
   {jp:'警察を呼んでください。',romaji:'Keisatsu wo yonde kudasai.',it:'Chiami la polizia, per favore.',cat:'emergenza'},
   {jp:'道に迷いました。',romaji:'Michi ni mayoimashita.',it:'Mi sono perso.',cat:'emergenza'},
   {jp:'パスポートをなくしました。',romaji:'Pasupooto wo nakushimashita.',it:'Ho perso il passaporto.',cat:'emergenza'},
+  {jp:'一番近い病院はどこですか。',romaji:'Ichiban chikai byouin wa doko desu ka.',it:'Qual è l\'ospedale più vicino?',cat:'emergenza'},
+  {jp:'保険に入っています。',romaji:'Hoken ni haitte imasu.',it:'Ho un\'assicurazione.',cat:'emergenza'},
+  {jp:'薬局はまだ開いていますか。',romaji:'Yakkyoku wa mada aite imasu ka.',it:'La farmacia è ancora aperta?',cat:'emergenza'},
+  {jp:'大使館はどこですか。',romaji:'Taishikan wa doko desu ka.',it:'Dov\'è l\'ambasciata?',cat:'emergenza'},
 
   // small talk
   {jp:'日本語は少ししか話せません。',romaji:'Nihongo wa sukoshi shika hanasemasen.',it:'Parlo solo un po\' di giapponese.',cat:'smalltalk'},
@@ -370,18 +473,44 @@ var PHRASES = [
   {jp:'とても親切ですね、ありがとうございます。',romaji:'Totemo shinsetsu desu ne, arigatou gozaimasu.',it:'È molto gentile, grazie.',cat:'smalltalk'},
   {jp:'お邪魔しました。',romaji:'Ojama shimashita.',it:'Scusi il disturbo (formula di commiato).',cat:'smalltalk'},
   {jp:'お世話になりました。',romaji:'Osewa ni narimashita.',it:'Grazie per l\'aiuto/l\'ospitalità (formula di commiato).',cat:'smalltalk'},
+  {jp:'日本は初めてです。',romaji:'Nihon wa hajimete desu.',it:'È la mia prima volta in Giappone.',cat:'smalltalk'},
+  {jp:'どのくらい滞在しますか。',romaji:'Dono kurai taizai shimasu ka.',it:'Quanto ti fermi?',cat:'smalltalk'},
+  {jp:'一人で旅行していますか。',romaji:'Hitori de ryokou shite imasu ka.',it:'Stai viaggiando da solo?',cat:'smalltalk'},
+  {jp:'とても美しい場所ですね。',romaji:'Totemo utsukushii basho desu ne.',it:'È un posto bellissimo.',cat:'smalltalk'},
+  {jp:'また来たいです。',romaji:'Mata kitai desu.',it:'Vorrei tornare.',cat:'smalltalk'},
+  {jp:'ここに住んでいますか。',romaji:'Koko ni sunde imasu ka.',it:'Vivi qui?',cat:'smalltalk'},
 
   // alloggio
   {jp:'チェックインをお願いします。',romaji:'Chekku in wo onegaishimasu.',it:'Vorrei fare il check-in.',cat:'alloggio'},
   {jp:'Wi-Fiのパスワードは何ですか。',romaji:'Waifai no pasuwaado wa nan desu ka.',it:'Qual è la password del wifi?',cat:'alloggio'},
   {jp:'タオルをもう一枚もらえますか。',romaji:'Taoru wo mou ichimai moraemasu ka.',it:'Posso avere un altro asciugamano?',cat:'alloggio'},
   {jp:'荷物を預けられますか。',romaji:'Nimotsu wo azukeraremasu ka.',it:'Posso lasciare i bagagli?',cat:'alloggio'},
+  {jp:'布団の使い方を教えてください。',romaji:'Futon no tsukaikata wo oshiete kudasai.',it:'Mi spieghi come si usa il futon?',cat:'alloggio'},
+  {jp:'何時までに帰ればいいですか。',romaji:'Nanji made ni kaereba ii desu ka.',it:'Entro che ora devo rientrare?',cat:'alloggio'},
+  {jp:'温泉は何時から入れますか。',romaji:'Onsen wa nanji kara hairemasu ka.',it:'Da che ora si può entrare nell\'onsen?',cat:'alloggio'},
 
   // shopping
   {jp:'いくらですか。',romaji:'Ikura desu ka.',it:'Quanto costa?',cat:'shopping'},
   {jp:'カードは使えますか。',romaji:'Kaado wa tsukaemasu ka.',it:'Posso pagare con carta?',cat:'shopping'},
   {jp:'試着してもいいですか。',romaji:'Shichaku shitemo ii desu ka.',it:'Posso provarlo?',cat:'shopping'},
   {jp:'免税できますか。',romaji:'Menzei dekimasu ka.',it:'È possibile il tax-free?',cat:'shopping'},
+  {jp:'サイズ違いはありますか。',romaji:'Saizu chigai wa arimasu ka.',it:'Avete un\'altra taglia?',cat:'shopping'},
+  {jp:'ラッピングをお願いします。',romaji:'Rappingu wo onegaishimasu.',it:'Può incartarlo per favore?',cat:'shopping'},
+  {jp:'これと同じものはありますか。',romaji:'Kore to onaji mono wa arimasu ka.',it:'Avete lo stesso articolo?',cat:'shopping'},
+
+  // meteo
+  {jp:'今日の天気はどうですか。',romaji:'Kyou no tenki wa dou desu ka.',it:'Com\'è il tempo oggi?',cat:'meteo'},
+  {jp:'明日は雨が降りますか。',romaji:'Ashita wa ame ga furimasu ka.',it:'Domani pioverà?',cat:'meteo'},
+  {jp:'とても暑いですね。',romaji:'Totemo atsui desu ne.',it:'Fa molto caldo, vero?',cat:'meteo'},
+  {jp:'傘が必要ですか。',romaji:'Kasa ga hitsuyou desu ka.',it:'Serve l\'ombrello?',cat:'meteo'},
+  {jp:'今は何度ですか。',romaji:'Ima wa nando desu ka.',it:'Quanti gradi ci sono ora?',cat:'meteo'},
+
+  // lavoro e scuola
+  {jp:'お仕事は何をしていますか。',romaji:'Oshigoto wa nani wo shite imasu ka.',it:'Che lavoro fai?',cat:'lavoroscuola'},
+  {jp:'会社員です。',romaji:'Kaishain desu.',it:'Sono un impiegato.',cat:'lavoroscuola'},
+  {jp:'日本語を勉強しています。',romaji:'Nihongo wo benkyou shite imasu.',it:'Sto studiando giapponese.',cat:'lavoroscuola'},
+  {jp:'休みの日は何をしますか。',romaji:'Yasumi no hi wa nani wo shimasu ka.',it:'Cosa fai nei giorni liberi?',cat:'lavoroscuola'},
+  {jp:'学校で日本語を習いました。',romaji:'Gakkou de nihongo wo naraimashita.',it:'Ho imparato il giapponese a scuola.',cat:'lavoroscuola'},
 
   // anime e manga — espressioni tipiche dello shounen, di uso generico
   {jp:'諦めない。',romaji:'Akiramenai.',it:'Non mi arrendo.',cat:'anime'},
@@ -398,6 +527,14 @@ var PHRASES = [
   {jp:'まだ終わっていない。',romaji:'Mada owatte inai.',it:'Non è ancora finita.',cat:'anime'},
   {jp:'全力を尽くす。',romaji:'Zenryoku wo tsukusu.',it:'Darò tutto me stesso.',cat:'anime'},
   {jp:'信じてる。',romaji:'Shinjiteru.',it:'Ci credo (ho fiducia).',cat:'anime'},
+  {jp:'負けられない戦いがある。',romaji:'Makerarenai tatakai ga aru.',it:'C\'è una battaglia che non posso perdere.',cat:'anime'},
+  {jp:'力を合わせよう。',romaji:'Chikara wo awaseyou.',it:'Uniamo le forze.',cat:'anime'},
+  {jp:'これが俺のやり方だ。',romaji:'Kore ga ore no yarikata da.',it:'Questo è il mio modo di fare le cose.',cat:'anime'},
+  {jp:'まだ見ぬ世界へ。',romaji:'Mada minu sekai e.',it:'Verso un mondo mai visto.',cat:'anime'},
+  {jp:'夢は必ず叶う。',romaji:'Yume wa kanarazu kanau.',it:'I sogni si avverano sempre.',cat:'anime'},
+  {jp:'一歩ずつ前へ進む。',romaji:'Ippo zutsu mae e susumu.',it:'Avanzo un passo alla volta.',cat:'anime'},
+  {jp:'心配するな、俺がいる。',romaji:'Shinpai suru na, ore ga iru.',it:'Non preoccuparti, ci sono io.',cat:'anime'},
+  {jp:'限界を超えろ。',romaji:'Genkai wo koero.',it:'Supera i tuoi limiti.',cat:'anime'},
 ];
 
 // ---------- PIANO DI STUDIO ----------
