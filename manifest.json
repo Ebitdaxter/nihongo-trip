@@ -1,12 +1,12 @@
 {
-  "name": "NihongoTrip",
-  "short_name": "NihongoTrip",
-  "description": "Impara il giapponese prima del viaggio: kana, vocabolario, frasi, tracking dei progressi.",
+  "name": "Samurai Sam",
+  "short_name": "Samurai Sam",
+  "description": "Impara il giapponese prima del viaggio: kana, kanji, vocabolario, frasi e tracking dei progressi.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#faf7f2",
-  "theme_color": "#bc1829",
+  "background_color": "#FAF6EE",
+  "theme_color": "#2B3A67",
   "orientation": "portrait",
   "icons": [
     { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },

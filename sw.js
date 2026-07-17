@@ -1,10 +1,10 @@
-const CACHE_NAME = 'nihongotrip-v1';
+const CACHE_NAME = 'samurai-sam-v1';
 const ASSETS = [
   './',
   './index.html',
   './style.css',
   './data.js',
-  './app_logic.js',
+  './logic.js',
   './manifest.json',
   './icon-180.png',
   './icon-192.png',
@@ -41,4 +41,5 @@ self.addEventListener('fetch', (event) => {
         .catch(() => cached);
       return cached || fetchPromise;
     })
-  )
+  );
+})

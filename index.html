@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
-<title>NihongoTrip</title>
+<title>Samurai Sam</title>
 
 <!-- PWA / iOS home screen -->
 <link rel="manifest" href="manifest.json" />
-<meta name="theme-color" content="#bc1829" />
+<meta name="theme-color" content="#2B3A67" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-<meta name="apple-mobile-web-app-title" content="NihongoTrip" />
+<meta name="apple-mobile-web-app-title" content="Samurai Sam" />
 <link rel="apple-touch-icon" href="icon-180.png" />
 <link rel="icon" href="icon-192.png" />
 
@@ -18,8 +18,61 @@
 </head>
 <body>
 
+<!-- Sprite di icone SVG originali (nessuna emoji) -->
+<svg style="display:none" aria-hidden="true">
+  <symbol id="icon-home" viewBox="0 0 24 24">
+    <path d="M3 11.5L12 4l9 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M5.5 10v8.5a1 1 0 0 0 1 1H9v-5.5h6V19.5h2.5a1 1 0 0 0 1-1V10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="icon-kana" viewBox="0 0 24 24">
+    <path d="M4 5.5c2.2-1.2 5-1.2 8 .5v13c-3-1.7-5.8-1.7-8-.5v-13z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M20 5.5c-2.2-1.2-5-1.2-8 .5v13c3-1.7 5.8-1.7 8-.5v-13z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="icon-vocab" viewBox="0 0 24 24">
+    <circle cx="6" cy="6.5" r="1.4" fill="currentColor"/>
+    <line x1="10.5" y1="6.5" x2="20.5" y2="6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="6" cy="12" r="1.4" fill="currentColor"/>
+    <line x1="10.5" y1="12" x2="20.5" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="6" cy="17.5" r="1.4" fill="currentColor"/>
+    <line x1="10.5" y1="17.5" x2="17" y2="17.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="icon-phrases" viewBox="0 0 24 24">
+    <path d="M4 5.5h16a1 1 0 0 1 1 1V15a1 1 0 0 1-1 1H9.5L5 20v-4H4a1 1 0 0 1-1-1V6.5a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+    <line x1="6.5" y1="9.5" x2="17.5" y2="9.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    <line x1="6.5" y1="13" x2="14" y2="13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="icon-plan" viewBox="0 0 24 24">
+    <rect x="3.5" y="5" width="17" height="15.5" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+    <line x1="3.5" y1="10" x2="20.5" y2="10" stroke="currentColor" stroke-width="2"/>
+    <line x1="8" y1="3" x2="8" y2="7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <line x1="16" y1="3" x2="16" y2="7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="icon-settings" viewBox="0 0 24 24">
+    <line x1="6" y1="4" x2="6" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="6" cy="9" r="2.2" fill="currentColor"/>
+    <line x1="12" y1="4" x2="12" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="12" cy="15" r="2.2" fill="currentColor"/>
+    <line x1="18" y1="4" x2="18" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="18" cy="7.5" r="2.2" fill="currentColor"/>
+  </symbol>
+  <symbol id="icon-speaker" viewBox="0 0 24 24">
+    <path d="M4 9.5v5h3.2l4.6 3.8V5.7L7.2 9.5H4z" fill="currentColor"/>
+    <path d="M16 9.2a4 4 0 0 1 0 5.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M18.4 6.8a8 8 0 0 1 0 10.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="icon-check" viewBox="0 0 24 24">
+    <path d="M4.5 12.5l5 5L20 6.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="icon-arrow-right" viewBox="0 0 24 24">
+    <path d="M4.5 12h14.5M13 6l6.5 6-6.5 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="icon-bolt" viewBox="0 0 24 24">
+    <path d="M13 2.5L5 14h5.5l-1 7.5L19 10h-5.5l-0.5-7.5z" fill="currentColor" stroke="currentColor" stroke-width="1" stroke-linejoin="round"/>
+  </symbol>
+</svg>
+
 <header class="app-header">
-  <span class="app-title">日 NihongoTrip</span>
+  <span class="app-title">Samurai Sam</span>
 </header>
 
 <main id="content">
@@ -32,17 +85,17 @@
 </main>
 
 <nav class="bottom-nav">
-  <button class="nav-btn active" data-tab="dashboard"><span class="nav-icon">🏠</span><span>Home</span></button>
-  <button class="nav-btn" data-tab="kana"><span class="nav-icon">あ</span><span>Kana</span></button>
-  <button class="nav-btn" data-tab="vocab"><span class="nav-icon">📚</span><span>Vocab</span></button>
-  <button class="nav-btn" data-tab="phrases"><span class="nav-icon">💬</span><span>Frasi</span></button>
-  <button class="nav-btn" data-tab="plan"><span class="nav-icon">🗓️</span><span>Piano</span></button>
-  <button class="nav-btn" data-tab="settings"><span class="nav-icon">⚙️</span><span>Impostazioni</span></button>
+  <button class="nav-btn active" data-tab="dashboard"><span class="nav-icon"><svg class="icon"><use href="#icon-home"></use></svg></span><span>Home</span></button>
+  <button class="nav-btn" data-tab="kana"><span class="nav-icon"><svg class="icon"><use href="#icon-kana"></use></svg></span><span>Kana</span></button>
+  <button class="nav-btn" data-tab="vocab"><span class="nav-icon"><svg class="icon"><use href="#icon-vocab"></use></svg></span><span>Vocab</span></button>
+  <button class="nav-btn" data-tab="phrases"><span class="nav-icon"><svg class="icon"><use href="#icon-phrases"></use></svg></span><span>Frasi</span></button>
+  <button class="nav-btn" data-tab="plan"><span class="nav-icon"><svg class="icon"><use href="#icon-plan"></use></svg></span><span>Piano</span></button>
+  <button class="nav-btn" data-tab="settings"><span class="nav-icon"><svg class="icon"><use href="#icon-settings"></use></svg></span><span>Impostazioni</span></button>
 </nav>
 
 <div id="toast"></div>
 
 <script src="data.js"></script>
-<script src="app_logic.js"></script>
+<script src="logic.js"></script>
 </body>
-</
+</html>

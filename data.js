@@ -1,5 +1,5 @@
 /* ============================================================
-   NihongoTrip — dati statici (kana, vocabolario, frasi)
+   Samurai Sam — dati statici (kana, kanji, vocabolario, frasi)
    Modifica/aggiungi voci qui: l'app le userà automaticamente.
    ============================================================ */
 
@@ -64,6 +64,56 @@ var KATAKANA = [
   {k:'ピャ',r:'pya',lvl:3},{k:'ピュ',r:'pyu',lvl:3},{k:'ピョ',r:'pyo',lvl:3},
 ];
 
+// ---------- KANJI DI BASE ----------
+// grp: raggruppamento tematico per lo studio a blocchi
+var KANJI_BASE = [
+  // numeri
+  {k:'一',r:'ichi',it:'uno (1)',grp:'numeri'},{k:'二',r:'ni',it:'due (2)',grp:'numeri'},
+  {k:'三',r:'san',it:'tre (3)',grp:'numeri'},{k:'四',r:'yon',it:'quattro (4)',grp:'numeri'},
+  {k:'五',r:'go',it:'cinque (5)',grp:'numeri'},{k:'六',r:'roku',it:'sei (6)',grp:'numeri'},
+  {k:'七',r:'nana',it:'sette (7)',grp:'numeri'},{k:'八',r:'hachi',it:'otto (8)',grp:'numeri'},
+  {k:'九',r:'kyuu',it:'nove (9)',grp:'numeri'},{k:'十',r:'juu',it:'dieci (10)',grp:'numeri'},
+  {k:'百',r:'hyaku',it:'cento',grp:'numeri'},{k:'千',r:'sen',it:'mille',grp:'numeri'},{k:'万',r:'man',it:'diecimila',grp:'numeri'},
+  // tempo
+  {k:'日',r:'hi',it:'giorno / sole',grp:'tempo'},{k:'月',r:'tsuki',it:'luna / mese',grp:'tempo'},
+  {k:'年',r:'toshi',it:'anno',grp:'tempo'},{k:'時',r:'ji',it:'ora',grp:'tempo'},
+  {k:'分',r:'fun',it:'minuto',grp:'tempo'},{k:'今',r:'ima',it:'adesso',grp:'tempo'},{k:'週',r:'shuu',it:'settimana',grp:'tempo'},
+  // natura
+  {k:'山',r:'yama',it:'montagna',grp:'natura'},{k:'川',r:'kawa',it:'fiume',grp:'natura'},
+  {k:'木',r:'ki',it:'albero',grp:'natura'},{k:'水',r:'mizu',it:'acqua',grp:'natura'},
+  {k:'火',r:'hi',it:'fuoco',grp:'natura'},{k:'空',r:'sora',it:'cielo',grp:'natura'},
+  {k:'雨',r:'ame',it:'pioggia',grp:'natura'},{k:'花',r:'hana',it:'fiore',grp:'natura'},
+  {k:'海',r:'umi',it:'mare',grp:'natura'},{k:'石',r:'ishi',it:'pietra',grp:'natura'},
+  // persone e corpo
+  {k:'人',r:'hito',it:'persona',grp:'persone'},{k:'私',r:'watashi',it:'io',grp:'persone'},
+  {k:'男',r:'otoko',it:'uomo',grp:'persone'},{k:'女',r:'onna',it:'donna',grp:'persone'},
+  {k:'子',r:'ko',it:'bambino',grp:'persone'},{k:'手',r:'te',it:'mano',grp:'persone'},
+  {k:'目',r:'me',it:'occhio',grp:'persone'},{k:'口',r:'kuchi',it:'bocca',grp:'persone'},
+  {k:'心',r:'kokoro',it:'cuore / mente',grp:'persone'},{k:'力',r:'chikara',it:'forza',grp:'persone'},
+  // luoghi e direzioni
+  {k:'上',r:'ue',it:'sopra',grp:'luoghi'},{k:'下',r:'shita',it:'sotto',grp:'luoghi'},
+  {k:'中',r:'naka',it:'dentro / centro',grp:'luoghi'},{k:'外',r:'soto',it:'fuori',grp:'luoghi'},
+  {k:'前',r:'mae',it:'davanti',grp:'luoghi'},{k:'後',r:'ato',it:'dopo / dietro',grp:'luoghi'},
+  {k:'右',r:'migi',it:'destra',grp:'luoghi'},{k:'左',r:'hidari',it:'sinistra',grp:'luoghi'},
+  {k:'東',r:'higashi',it:'est',grp:'luoghi'},{k:'西',r:'nishi',it:'ovest',grp:'luoghi'},
+  {k:'南',r:'minami',it:'sud',grp:'luoghi'},{k:'北',r:'kita',it:'nord',grp:'luoghi'},
+  {k:'国',r:'kuni',it:'paese / nazione',grp:'luoghi'},{k:'家',r:'ie',it:'casa',grp:'luoghi'},
+  // aggettivi e verbi radice
+  {k:'大',r:'oo',it:'grande',grp:'aggettivi'},{k:'小',r:'chii',it:'piccolo',grp:'aggettivi'},
+  {k:'高',r:'taka',it:'alto / caro',grp:'aggettivi'},{k:'新',r:'atara',it:'nuovo',grp:'aggettivi'},
+  {k:'古',r:'furu',it:'vecchio',grp:'aggettivi'},{k:'長',r:'naga',it:'lungo',grp:'aggettivi'},
+  {k:'早',r:'haya',it:'presto / veloce',grp:'aggettivi'},
+  {k:'行',r:'i',it:'andare (radice)',grp:'verbi'},{k:'見',r:'mi',it:'vedere (radice)',grp:'verbi'},
+  {k:'食',r:'ta',it:'mangiare (radice)',grp:'verbi'},{k:'飲',r:'no',it:'bere (radice)',grp:'verbi'},
+  {k:'言',r:'i',it:'dire (radice)',grp:'verbi'},{k:'話',r:'hana',it:'parlare (radice)',grp:'verbi'},
+  {k:'読',r:'yo',it:'leggere (radice)',grp:'verbi'},{k:'書',r:'ka',it:'scrivere (radice)',grp:'verbi'},
+  {k:'聞',r:'ki',it:'ascoltare (radice)',grp:'verbi'},
+  {k:'生',r:'sei',it:'vita / crudo',grp:'verbi'},{k:'先',r:'saki',it:'prima / punta',grp:'verbi'},
+  {k:'出',r:'de',it:'uscire (radice)',grp:'verbi'},{k:'入',r:'hai',it:'entrare (radice)',grp:'verbi'},
+  {k:'立',r:'ta',it:'stare in piedi (radice)',grp:'verbi'},{k:'休',r:'yasu',it:'riposare (radice)',grp:'verbi'},
+  {k:'買',r:'ka',it:'comprare (radice)',grp:'verbi'},{k:'車',r:'kuruma',it:'macchina',grp:'luoghi'},
+];
+
 // ---------- CATEGORIE (etichette leggibili) ----------
 var CATEGORY_LABELS = {
   saluti: 'Saluti e cortesia',
@@ -78,10 +128,13 @@ var CATEGORY_LABELS = {
   shopping: 'Shopping e soldi',
   smalltalk: 'Small talk e domande',
   alloggio: 'Alloggio',
+  anime: 'Anime e manga',
+  natura: 'Natura',
+  persone: 'Persone e corpo',
+  luoghi: 'Luoghi e direzioni',
 };
 
 // ---------- VOCABOLARIO (per SRS) ----------
-// jp = forma con kanji (se assente = solo kana), kana = lettura, romaji, it = italiano, cat = categoria
 var VOCAB = [
   // saluti
   {jp:'おはようございます',kana:'おはようございます',romaji:'ohayou gozaimasu',it:'buongiorno (mattina)',cat:'saluti'},
@@ -329,13 +382,30 @@ var PHRASES = [
   {jp:'カードは使えますか。',romaji:'Kaado wa tsukaemasu ka.',it:'Posso pagare con carta?',cat:'shopping'},
   {jp:'試着してもいいですか。',romaji:'Shichaku shitemo ii desu ka.',it:'Posso provarlo?',cat:'shopping'},
   {jp:'免税できますか。',romaji:'Menzei dekimasu ka.',it:'È possibile il tax-free?',cat:'shopping'},
+
+  // anime e manga — espressioni tipiche dello shounen, di uso generico
+  {jp:'諦めない。',romaji:'Akiramenai.',it:'Non mi arrendo.',cat:'anime'},
+  {jp:'まだまだだ。',romaji:'Mada mada da.',it:'Non è ancora finita.',cat:'anime'},
+  {jp:'本気を出す時が来た。',romaji:'Honki wo dasu toki ga kita.',it:'È arrivato il momento di fare sul serio.',cat:'anime'},
+  {jp:'絶対に負けない。',romaji:'Zettai ni makenai.',it:'Non perderò mai.',cat:'anime'},
+  {jp:'仲間を守りたい。',romaji:'Nakama wo mamoritai.',it:'Voglio proteggere i miei compagni.',cat:'anime'},
+  {jp:'夢を諦めるな。',romaji:'Yume wo akirameru na.',it:'Non abbandonare il tuo sogno.',cat:'anime'},
+  {jp:'覚悟はいいか？',romaji:'Kakugo wa ii ka?',it:'Sei pronto (mentalmente)?',cat:'anime'},
+  {jp:'心を燃やせ。',romaji:'Kokoro wo moyase.',it:'Fai ardere il tuo cuore.',cat:'anime'},
+  {jp:'一緒に戦おう。',romaji:'Issho ni tatakaou.',it:'Combattiamo insieme.',cat:'anime'},
+  {jp:'俺が守る。',romaji:'Ore ga mamoru.',it:'Sono io a proteggerti.',cat:'anime'},
+  {jp:'負けるわけにはいかない。',romaji:'Makeru wake ni wa ikanai.',it:'Non posso permettermi di perdere.',cat:'anime'},
+  {jp:'まだ終わっていない。',romaji:'Mada owatte inai.',it:'Non è ancora finita.',cat:'anime'},
+  {jp:'全力を尽くす。',romaji:'Zenryoku wo tsukusu.',it:'Darò tutto me stesso.',cat:'anime'},
+  {jp:'信じてる。',romaji:'Shinjiteru.',it:'Ci credo (ho fiducia).',cat:'anime'},
 ];
 
-// ---------- PIANO DI STUDIO (mostrato nella tab dedicata) ----------
+// ---------- PIANO DI STUDIO ----------
 var STUDY_PLAN = [
   {
     fase: 'Fase 1 — Fondamenta',
-    periodo: '17 lug – 30 lug (2 settimane)',
+    start: '2026-07-17',
+    end: '2026-07-30',
     obiettivi: [
       'Leggere hiragana e katakana a colpo d\'occhio (senza pensarci)',
       'Saluti e cortesia di base',
@@ -344,17 +414,19 @@ var STUDY_PLAN = [
   },
   {
     fase: 'Fase 2 — Corpo centrale',
-    periodo: '31 lug – 20 set (8 settimane)',
+    start: '2026-07-31',
+    end: '2026-09-20',
     obiettivi: [
       '10-15 parole nuove al giorno via SRS (vocabolario ad alta frequenza)',
-      'Grammatica base essenziale (particelle は/が/を/に, forma ます)',
-      '10 min al giorno di shadowing su audio facili (frasi della tab Frasi)',
+      'Primi kanji di base, letti attraverso le parole che già conosci',
+      '10 min al giorno di shadowing su frasi facili',
       'Ascolto passivo regolare (podcast/NHK Easy Japanese)'
     ]
   },
   {
     fase: 'Fase 3 — Sopravvivenza rurale',
-    periodo: '21 set – 18 ott (4 settimane)',
+    start: '2026-09-21',
+    end: '2026-10-18',
     obiettivi: [
       'Frasi pratiche per situazioni reali: indicazioni, trasporti, cibo, emergenze',
       'Small talk con locali dove l\'inglese non arriva',
@@ -363,7 +435,8 @@ var STUDY_PLAN = [
   },
   {
     fase: 'Fase 4 — Consolidamento',
-    periodo: '19 ott – 2 nov (2 settimane)',
+    start: '2026-10-19',
+    end: '2026-11-02',
     obiettivi: [
       'Ripasso spaziato di tutto il materiale (le carte SRS più deboli)',
       'Conversazioni simulate (ripeti a voce alta le frasi come se parlassi con qualcuno)',
