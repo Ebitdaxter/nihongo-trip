@@ -54,6 +54,21 @@ body {
   z-index: 10;
   box-shadow: 0 2px 10px rgba(28,39,71,0.18);
 }
+
+/* Avviso salvataggio non funzionante (es. Modalità privata di Safari) */
+.storage-warning {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: var(--vermilion-dark);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.4;
+  padding: 10px 16px;
+  padding-top: max(10px, env(safe-area-inset-top));
+  text-align: center;
+}
 .app-title {
   font-size: 1.05rem;
   font-weight: 700;

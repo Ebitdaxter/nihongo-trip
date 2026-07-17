@@ -1,4 +1,4 @@
-const CACHE_NAME = 'samurai-sam-v3';
+const CACHE_NAME = 'samurai-sam-v4';
 const ASSETS = [
   './',
   './index.html',

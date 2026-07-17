@@ -34,6 +34,12 @@ function icon(name, extraClass) {
 }
 
 // ---------------- Storage ----------------
+// true se un tentativo di scrittura su localStorage è fallito (es. Safari in
+// modalità privata, storage pieno o bloccato dalle impostazioni del browser).
+// In quel caso i progressi NON vengono salvati e l'utente va avvisato subito,
+// invece di scoprirlo solo dopo un refresh quando tutto sembra sparito.
+var storageIsBroken = false;
+
 var Store = {
   get(key, fallback) {
     try {
@@ -42,12 +48,45 @@ var Store = {
     } catch (e) { return fallback; }
   },
   set(key, val) {
-    localStorage.setItem(LS_PREFIX + key, JSON.stringify(val));
+    try {
+      localStorage.setItem(LS_PREFIX + key, JSON.stringify(val));
+    } catch (e) {
+      storageIsBroken = true;
+      showStorageWarning();
+    }
   },
   allKeys() {
     return Object.keys(localStorage).filter(k => k.startsWith(LS_PREFIX));
   }
 };
+
+// Test di salvataggio eseguito una volta all'avvio: scrive un valore fittizio
+// e lo rilegge subito. Se qualcosa nel browser blocca il salvataggio (es.
+// modalità privata di Safari), lo scopriamo qui invece che dopo un refresh.
+function checkStorageWorks() {
+  try {
+    const testKey = LS_PREFIX + '__test__';
+    const testVal = String(Date.now());
+    localStorage.setItem(testKey, testVal);
+    const readBack = localStorage.getItem(testKey);
+    localStorage.removeItem(testKey);
+    if (readBack !== testVal) throw new Error('mismatch');
+    storageIsBroken = false;
+  } catch (e) {
+    storageIsBroken = true;
+    showStorageWarning();
+  }
+}
+
+function showStorageWarning() {
+  let b = document.getElementById('storage-warning');
+  if (b) return; // già mostrato
+  b = document.createElement('div');
+  b.id = 'storage-warning';
+  b.className = 'storage-warning';
+  b.innerHTML = 'Il salvataggio non funziona in questo momento (probabile Modalità privata di Safari, oppure spazio esaurito). I progressi di questa sessione NON verranno salvati dopo un refresh. Apri l\'app in una scheda normale (non privata) per salvare correttamente.';
+  document.body.insertBefore(b, document.body.firstChild);
+}
 
 function getSRS() { return Store.get('srs', {}); }
 function saveSRS(srs) { Store.set('srs', srs); }
@@ -508,7 +547,12 @@ function startSession(kind, deck, onDone, mode, poolKind) {
 }
 
 function renderSessionCard() {
-  const area = document.getElementById('session-area');
+  // Ogni tab (Kana/Vocab/Frasi) ha il suo "session-area": una volta visitati più
+  // tab nella stessa sessione, quelli vecchi restano nel DOM solo nascosti.
+  // getElementById prenderebbe sempre il primo trovato (bug: il tasto "Inizia
+  // sessione" scriveva nel tab sbagliato, nascosto, sembrando "non responsive").
+  // Cerchiamo quindi SOLO dentro il tab attualmente visibile.
+  const area = document.querySelector('.tab-panel.active .session-area');
   if (!area) return;
   const { queue, idx, mode, points } = currentSession;
   if (idx >= queue.length) {
@@ -636,7 +680,7 @@ function renderKanaHome() {
       <div id="kana-mastery" class="mastery-line"></div>
       <button class="btn btn-primary" onclick="launchKanaSession()">Inizia sessione</button>
     </div>
-    <div id="session-area"></div>
+    <div class="session-area"></div>
   `;
   onKanaSetChange();
 }
@@ -703,7 +747,7 @@ function renderVocabHome() {
       <div id="vocab-mastery" class="mastery-line"></div>
       <button class="btn btn-primary" onclick="launchVocabSession()">Inizia sessione</button>
     </div>
-    <div id="session-area"></div>
+    <div class="session-area"></div>
   `;
   updateVocabMastery();
 }
@@ -741,7 +785,7 @@ function renderPhrasesHome() {
       <div id="phrase-mastery" class="mastery-line"></div>
       <button class="btn btn-primary" onclick="launchPhraseSession()">Inizia sessione</button>
     </div>
-    <div id="session-area"></div>
+    <div class="session-area"></div>
   `;
   updatePhraseMastery();
 }
@@ -877,6 +921,17 @@ function resetAllData() {
 
 // ================= INIT =================
 window.addEventListener('DOMContentLoaded', () => {
+  // Verifica subito se il salvataggio funziona davvero in questo browser
+  // (es. Modalità privata di Safari blocca localStorage silenziosamente).
+  checkStorageWorks();
+
+  // Chiediamo al browser di rendere lo storage "persistente" (non evictabile
+  // sotto pressione di spazio). Best-effort: se il browser non supporta
+  // questa API o rifiuta la richiesta, non cambia nulla.
+  if (navigator.storage && navigator.storage.persist) {
+    navigator.storage.persist().catch(() => {});
+  }
+
   document.querySelectorAll('.nav-btn').forEach(btn => {
     btn.addEventListener('click', () => showTab(btn.dataset.tab));
   });
