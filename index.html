@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
+<title>NihongoTrip</title>
+
+<!-- PWA / iOS home screen -->
+<link rel="manifest" href="manifest.json" />
+<meta name="theme-color" content="#bc1829" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="NihongoTrip" />
+<link rel="apple-touch-icon" href="icon-180.png" />
+<link rel="icon" href="icon-192.png" />
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="app-header">
+  <span class="app-title">日 NihongoTrip</span>
+</header>
+
+<main id="content">
+  <section id="tab-dashboard" class="tab-panel active"></section>
+  <section id="tab-kana" class="tab-panel"></section>
+  <section id="tab-vocab" class="tab-panel"></section>
+  <section id="tab-phrases" class="tab-panel"></section>
+  <section id="tab-plan" class="tab-panel"></section>
+  <section id="tab-settings" class="tab-panel"></section>
+</main>
+
+<nav class="bottom-nav">
+  <button class="nav-btn active" data-tab="dashboard"><span class="nav-icon">🏠</span><span>Home</span></button>
+  <button class="nav-btn" data-tab="kana"><span class="nav-icon">あ</span><span>Kana</span></button>
+  <button class="nav-btn" data-tab="vocab"><span class="nav-icon">📚</span><span>Vocab</span></button>
+  <button class="nav-btn" data-tab="phrases"><span class="nav-icon">💬</span><span>Frasi</span></button>
+  <button class="nav-btn" data-tab="plan"><span class="nav-icon">🗓️</span><span>Piano</span></button>
+  <button class="nav-btn" data-tab="settings"><span class="nav-icon">⚙️</span><span>Impostazioni</span></button>
+</nav>
+
+<div id="toast"></div>
+
+<script src="data.js"></script>
+<script src="app_logic.js"></script>
+</body>
+</
